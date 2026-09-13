@@ -1,11 +1,10 @@
-from models import KnowledgeItem
 import requests
+from .knowledgesource import KnowledgeSource
 
-class WikipediaSource:
-    def __init__(self, topic):
-        self.topic = topic
+class WikipediaSource(KnowledgeSource):
 
-    def create_knowledge_item(self):
+    def get_information(self)-> str:
+        print("Manische on the beat shabang")
         url = "https://de.wikipedia.org/w/api.php"
         response = requests.get(url,
                                    params={
@@ -18,10 +17,15 @@ class WikipediaSource:
                                    headers= {
                                        "User-Agent": "DailyDigest/1.0 (https://github.com/NoMelatonin/daily-digest.git)"
                                    })
-
+        print("received informaiton")
         data = response.json()
-        information = next(iter(data['query']['pages'].values()))['extract']
-        item = KnowledgeItem("Geografie", information, url)
-        return item
+        data_to_iterate = data["query"]["pages"]
+        content = next(iter(data_to_iterate.values()))["extract"]
+        return content
+
+
+
+
+
 
 
