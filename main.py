@@ -1,10 +1,10 @@
-from knowledgesources.wikipedia import WikipediaSource
+from textknowledgesources.wikipedia import WikipediaSource
 
 def main():
    print("main started")
-   first = WikipediaSource("Isambard Kingdom Brunel")
+   first = WikipediaSource( "Isambard Kingdom Brunel")
    result = first.get_information()
-   print(result)
+   print(result[1])
 
 
 

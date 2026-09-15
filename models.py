@@ -1,14 +1,12 @@
 class KnowledgeItem:
-    def __init__(self, subject, content, rawdata):
+    def __init__(self, subject, question, answer, rawdata, source):
         self.subject = subject
-        self.content = content
+        self.question = question
+        self.answer = answer
         self.raw_data = rawdata
+        self.source = source
+
 
     def show_knowledge_item_content(self):
         print(self.content)
 
-class RawData:
-    def __init__(self, url, content, subject):
-        self.url = url
-        self.content = content
-        self.subject = subject

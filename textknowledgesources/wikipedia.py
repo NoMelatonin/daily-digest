@@ -3,7 +3,10 @@ from .knowledgesource import KnowledgeSource
 
 class WikipediaSource(KnowledgeSource):
 
-    def get_information(self)-> str:
+
+# Die Fuktion gibt anhand des im Objekt steckenden Themas ein Tupel aus der url und dem content der Seite aus
+
+    def get_information(self)-> tuple[str, str]:
         print("Manische on the beat shabang")
         url = "https://de.wikipedia.org/w/api.php"
         response = requests.get(url,
@@ -21,7 +24,7 @@ class WikipediaSource(KnowledgeSource):
         data = response.json()
         data_to_iterate = data["query"]["pages"]
         content = next(iter(data_to_iterate.values()))["extract"]
-        return content
+        return [url, content]
 
 
 
