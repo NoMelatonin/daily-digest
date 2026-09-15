@@ -2,6 +2,8 @@ from openai import OpenAI
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
+#Dieser File dient nur dazu anhand des der methode 'generate_question_and_answer_pairs'
+#übergebenen contents fünf frage und antwort paare zu erstellen. Diese paare werden als string tupel in einem tupel zurückgegeben
 
 load_dotenv()
 client = OpenAI()
