@@ -1,4 +1,4 @@
-from textknowledgesources.wikipedia import WikipediaSource
+from textinfromationsource import get_information
 from llmapicalls import generate_question_and_answer_pairs
 
 def main():
